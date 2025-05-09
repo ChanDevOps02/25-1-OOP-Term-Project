@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="filemanager.controller.UsageVisualizationController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <!-- 1) 폴더 선택 -->
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="폴더 선택:"/>
+        <TextField fx:id="directoryField" prefWidth="300" editable="false"/>
+        <Button text="폴더 선택" onAction="#onSelectDirectory"/>
+    </HBox>
+
+    <!-- 2) 기간(일) 입력 & 시각화 실행 -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="기간 (일):"/>
+        <TextField fx:id="daysField" prefWidth="80" promptText="예: 7"/>
+        <Button text="시각화 실행" onAction="#onVisualize"/>
+    </HBox>
+
+    <!-- 3) BarChart -->
+    <BarChart fx:id="barChart" title="최근 파일 수정 이력" prefHeight="400">
+        <xAxis>
+            <CategoryAxis label="날짜"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis label="파일 개수"/>
+        </yAxis>
+    </BarChart>
+</VBox>

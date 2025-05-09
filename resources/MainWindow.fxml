@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="filemanager.controller.MainWindowController">
+
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10;">
+            <!-- 기존 타이틀 레이블 -->
+            <Label text="File Manager Pro"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+            <!-- 디스크 사용량을 표시할 레이블 (fx:id 추가) -->
+            <Label fx:id="diskUsageLabel"
+                   text="디스크 사용량: -- / --"
+                   style="-fx-font-size: 14px;"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Button text="📁 확장자별 정리"      onAction="#handleSortByExtension"/>
+            <Button text="🗑 미사용 파일 삭제" onAction="#handleInactiveFileCleanup"/>
+            <Button text="🔍 고급 검색"         onAction="#handleAdvancedSearch"/>
+            <Button text="📊 사용 이력 시각화"  onAction="#handleUsageVisualization"/>
+            <Button text="🔒 암호화/복호화" onAction="#handleEncryption"/>
+            <Separator/>
+            <Button text="❔ 도움말"             onAction="#handleHelp"/>
+            <Button text="👤 개발자 소개"       onAction="#handleAbout"/>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="mainContentPane" style="-fx-padding: 10;"/>
+    </center>
+
+    <bottom>
+        <TextArea fx:id="logArea"
+                  prefRowCount="4"
+                  editable="false"
+                  wrapText="true"/>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="filemanager.controller.InactiveFileCleanupController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <!-- 1) 폴더 선택 -->
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="폴더 선택:"/>
+        <TextField fx:id="directoryField" prefWidth="400" editable="false"/>
+        <Button text="폴더 선택" onAction="#onSelectDirectory"/>
+    </HBox>
+
+    <!-- 2) 기간 입력 & 스캔/삭제 -->
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="미사용 기간(일):"/>
+        <TextField fx:id="daysField" prefWidth="80" promptText="예: 30"/>
+        <Button text="검색" onAction="#onScanInactiveFiles"/>
+        <Button text="전체 삭제" onAction="#onDeleteAll"/>
+    </HBox>
+
+    <!-- 3) 결과 테이블 -->
+    <TableView fx:id="tableView" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colFilePath" text="파일 경로" prefWidth="450"/>
+            <TableColumn fx:id="colLastAccess" text="마지막 액세스" prefWidth="200"/>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="filemanager.controller.EncryptionController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <!-- 1) 파일 선택 -->
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="파일:"/>
+        <TextField fx:id="fileField" prefWidth="300" editable="false"/>
+        <Button text="파일 선택" onAction="#onChooseFile"/>
+    </HBox>
+
+    <!-- 2) 비밀번호 입력 -->
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="비밀번호:"/>
+        <PasswordField fx:id="passwordField" prefWidth="150"/>
+        <Label text="확인:"/>
+        <PasswordField fx:id="confirmField" prefWidth="150"/>
+    </HBox>
+
+    <!-- 3) 암호화 / 복호화 -->
+    <HBox spacing="10">
+        <Button text="🔒 암호화" onAction="#onEncrypt"/>
+        <Button text="🔓 복호화" onAction="#onDecrypt"/>
+    </HBox>
+
+    <!-- 4) 진행률 & 상태 로그 -->
+    <ProgressBar fx:id="progressBar" prefWidth="500"/>
+    <TextArea fx:id="statusArea" prefRowCount="4" editable="false" wrapText="true"/>
+</VBox>

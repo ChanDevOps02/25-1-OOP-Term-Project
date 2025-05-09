@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="MyFileManager:jar2">
+    <output-path>$PROJECT_DIR$/../25학년도 1학기/Object Oriented Programming Language/과제/최종과제</output-path>
+    <root id="root">
+      <element id="archive" name="MyFileManager.jar">
+        <element id="module-output" name="MyFileManager" />
+      </element>
+      <element id="library" level="project" name="lib" />
+    </root>
+  </artifact>
+</component>

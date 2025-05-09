@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="filemanager.controller.AdvancedSearchController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <!-- 1) 폴더 선택 -->
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="검색할 폴더:"/>
+        <TextField fx:id="directoryField" prefWidth="300" editable="false"/>
+        <Button text="폴더 선택" onAction="#onSelectDirectory"/>
+    </HBox>
+
+    <!-- 2) 필터 입력 -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="이름 키워드:"        GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="patternField"  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="최소 크기 (KB):"    GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="minSizeField"  prefWidth="80" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="최대 크기 (KB):"    GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="maxSizeField"  prefWidth="80" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+        <Label text="수정일 From:"      GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="fromDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="수정일 To:"        GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <DatePicker fx:id="toDatePicker"   GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+    </GridPane>
+
+    <!-- 3) 실행 / 초기화 -->
+    <HBox spacing="10">
+        <Button text="검색 실행" onAction="#onSearch"/>
+        <Button text="필드 초기화" onAction="#onClear"/>
+    </HBox>
+
+    <!-- 4) 결과 테이블 -->
+    <TableView fx:id="resultTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colPath"     text="파일 경로" prefWidth="350"/>
+            <TableColumn fx:id="colSize"     text="크기"       prefWidth="100"/>
+            <TableColumn fx:id="colModified" text="수정일"     prefWidth="200"/>
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="filemanager.controller.SortByExtensionController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label text="정리할 폴더:"/>
+        <TextField fx:id="directoryField" prefWidth="400" editable="false"/>
+        <Button text="폴더 선택" onAction="#onSelectDirectory"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Button text="확장자별 정리 실행" onAction="#onExecuteSort"/>
+        <Button text="정리 취소(복원)" onAction="#onUndoSort"/>
+    </HBox>
+
+    <TableView fx:id="resultTable" prefHeight="400">
+        <columns>
+            <TableColumn fx:id="colOldPath" text="이전 위치" prefWidth="300"/>
+            <TableColumn fx:id="colNewPath" text="새 위치" prefWidth="300"/>
+        </columns>
+    </TableView>
+</VBox>
